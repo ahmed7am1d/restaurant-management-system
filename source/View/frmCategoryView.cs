@@ -26,9 +26,49 @@ namespace ResturantManagmentSystem.View
         }
 
         // Method called when typing in search bar
-        public virtual void textBox1_TextChanged(object sender, EventArgs e)
+        // In frmCategoryView.cs
+        public override void searchBox_TextChanged(object sender, EventArgs e)
         {
+            // Get the search term from the text box
+            string searchTerm = txtSearch.Text.ToLower().Trim();
 
+            try
+            {
+                // If the search term is empty, get all data
+                if (string.IsNullOrEmpty(searchTerm))
+                {
+                    GetData();
+                    return;
+                }
+
+                // Create a query that filters categories by name
+                string query = "SELECT catID, catName FROM category WHERE catName LIKE @searchTerm";
+                DataTable dt = new DataTable();
+
+                // Create a connection and execute the query
+                using (SqlConnection con = MainClass.GetConnection())
+                {
+                    con.Open();
+                    using (SqlCommand cmd = new SqlCommand(query, con))
+                    {
+                        // Use % wildcards for partial matching
+                        cmd.Parameters.AddWithValue("@searchTerm", "%" + searchTerm + "%");
+
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                        {
+                            adapter.Fill(dt);
+                        }
+                    }
+                }
+
+                // Update the DataGridView with the filtered results
+                dataGridView1.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error searching categories: " + ex.Message,
+                    "Search Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
 
