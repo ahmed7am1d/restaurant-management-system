@@ -10,29 +10,21 @@ using System.Windows.Forms;
 
 namespace ResturantManagmentSystem
 {
-    public partial class SampleView: Form
+    public partial class SampleView : Form
     {
         public SampleView()
         {
             InitializeComponent();
         }
 
-       
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-public virtual void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+        // When clicking Add button
         public virtual void btnAdd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        // When searching or typing for search
+        public virtual void searchBox_TextChanged(object sender, EventArgs e)
         {
 
         }

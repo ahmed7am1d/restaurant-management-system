@@ -16,15 +16,22 @@ namespace ResturantManagmentSystem.View
         }
 
         // Method called when the Add button is clicked to open the Add form
-        public void btnCategoryAdd_Click(object sender, EventArgs e)
+        public override void btnAdd_Click(object sender, EventArgs e)
         {
             frmCategoryAdd frm = new frmCategoryAdd();
 
             // Subscribe to the event CategoryAdded
-            frm.CategoryAdded += (s,args) => GetData();
+            frm.CategoryAdded += (s, args) => GetData();
 
             frm.ShowDialog();
         }
+
+        // Method called when typing in search bar
+        public virtual void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
 
         // Method called when clicking on the cell to edit/delete the category
         // Help for you barazan the columns names are as follows: catID, catName, dgvDel, dgvEdit
@@ -115,7 +122,7 @@ namespace ResturantManagmentSystem.View
         // Barazan: Implement here for the edit functionality   
         private void dataGridView1_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
-            if(dataGridView1.CurrentCell.OwningColumn.Name == "dgvEdit")
+            if (dataGridView1.CurrentCell.OwningColumn.Name == "dgvEdit")
             {
                 frmCategoryAdd frm = new frmCategoryAdd();
                 frm.id = Convert.ToInt32(dataGridView1.CurrentRow.Cells["dgvid"].Value);

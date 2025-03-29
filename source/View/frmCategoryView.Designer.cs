@@ -40,7 +40,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Click += new System.EventHandler(this.btnCategoryAdd_Click);
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // label2
             // 

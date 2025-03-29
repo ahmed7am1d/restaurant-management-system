@@ -67,10 +67,10 @@
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
     <Compile Include="MainClass.cs" />
-    <Compile Include="Model\frmCategoryAdd.cs">
+    <Compile Include="View\frmCategoryAdd.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Model\frmCategoryAdd.Designer.cs">
+    <Compile Include="View\frmCategoryAdd.Designer.cs">
       <DependentUpon>frmCategoryAdd.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -102,7 +102,7 @@
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Model\frmCategoryAdd.resx">
+    <EmbeddedResource Include="View\frmCategoryAdd.resx">
       <DependentUpon>frmCategoryAdd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -146,6 +146,8 @@
   <ItemGroup>
     <None Include="Resources\hm.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Model\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -42,7 +42,7 @@
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(204, 25);
             this.txtSearch.TabIndex = 0;
-            this.txtSearch.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.txtSearch.TextChanged += new System.EventHandler(this.searchBox_TextChanged);
             // 
             // label1
             // 
@@ -53,7 +53,6 @@
             this.label1.Size = new System.Drawing.Size(49, 17);
             this.label1.TabIndex = 1;
             this.label1.Text = "Search";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -64,7 +63,6 @@
             this.label2.Size = new System.Drawing.Size(85, 17);
             this.label2.TabIndex = 4;
             this.label2.Text = "Header Text";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // btnAdd
             // 
@@ -89,7 +87,7 @@
             this.Controls.Add(this.txtSearch);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "SampleView";
             this.Text = "SampleView";
             this.ResumeLayout(false);
