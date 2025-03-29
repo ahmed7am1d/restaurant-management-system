@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Data.SqlClient;
-
 using System.Windows.Forms;
 
-namespace ResturantManagmentSystem.Model
+namespace ResturantManagmentSystem.View
 {
     public partial class frmCategoryAdd: SampleAdd
     {

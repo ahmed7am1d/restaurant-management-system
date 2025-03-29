@@ -1,5 +1,4 @@
-﻿using ResturantManagmentSystem.Model;
-using System;
+﻿using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
