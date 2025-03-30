@@ -1,4 +1,4 @@
-﻿namespace ResturantManagmentSystem.View
+﻿namespace ResturantManagmentSystem.View.Category
 {
     partial class frmCategoryAdd
     {

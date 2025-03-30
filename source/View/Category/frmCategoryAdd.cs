@@ -2,7 +2,7 @@
 using System.Data.SqlClient;
 using System.Windows.Forms;
 
-namespace ResturantManagmentSystem.View
+namespace ResturantManagmentSystem.View.Category
 {
     public partial class frmCategoryAdd: SampleAdd
     {

@@ -66,7 +66,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(275, 610);
             this.panel1.TabIndex = 0;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // btnSettings
             // 
@@ -102,7 +101,6 @@
             this.btnKitchen.Text = "        Kitchen   ";
             this.btnKitchen.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnKitchen.UseVisualStyleBackColor = false;
-            this.btnKitchen.CheckedChanged += new System.EventHandler(this.radioButton7_CheckedChanged);
             // 
             // btnPOS
             // 
@@ -121,7 +119,6 @@
             this.btnPOS.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnPOS.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnPOS.UseVisualStyleBackColor = false;
-            this.btnPOS.CheckedChanged += new System.EventHandler(this.radioButton6_CheckedChanged);
             // 
             // btnStaff
             // 
@@ -140,7 +137,6 @@
             this.btnStaff.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnStaff.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnStaff.UseVisualStyleBackColor = false;
-            this.btnStaff.CheckedChanged += new System.EventHandler(this.radioButton5_CheckedChanged);
             // 
             // btnTable
             // 
@@ -177,6 +173,7 @@
             this.btnProduct.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnProduct.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnProduct.UseVisualStyleBackColor = false;
+            this.btnProduct.CheckedChanged += new System.EventHandler(this.ProductButton_Clicked);
             // 
             // btnCategories
             // 
@@ -227,7 +224,6 @@
             this.label1.Size = new System.Drawing.Size(194, 42);
             this.label1.TabIndex = 1;
             this.label1.Text = "Resturant Managment \r\n              System";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // pictureBox1
             // 
@@ -249,7 +245,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(660, 60);
             this.panel2.TabIndex = 2;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // lblUser
             // 
@@ -268,7 +263,7 @@
             // 
             this.ControlPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ControlPanel.Location = new System.Drawing.Point(275, 60);
-            this.ControlPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ControlPanel.Margin = new System.Windows.Forms.Padding(2);
             this.ControlPanel.Name = "ControlPanel";
             this.ControlPanel.Size = new System.Drawing.Size(660, 550);
             this.ControlPanel.TabIndex = 3;

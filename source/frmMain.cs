@@ -1,4 +1,5 @@
-﻿using ResturantManagmentSystem.View;
+﻿using ResturantManagmentSystem.View.Category;
+using ResturantManagmentSystem.View.Product;
 using System.Windows.Forms;
 
 namespace ResturantManagmentSystem
@@ -7,9 +8,10 @@ namespace ResturantManagmentSystem
     public partial class frmMain : Form
     {
         // Create an instance of views form to be used later and not disposed
-        private frmCategoryView categoryViewInstance;
         private frmHome homeViewInstance;
-
+        private frmCategoryView categoryViewInstance;
+        private frmProductView _frmProductViewInstance;
+        
         public frmMain()
         {
             InitializeComponent();
@@ -40,55 +42,27 @@ namespace ResturantManagmentSystem
             categoryViewInstance.GetData(); // Force refresh data
         }
 
-        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        
+        // When Product button gets clicked
+        private void ProductButton_Clicked(object sender, System.EventArgs e)
         {
+            // Use the instance if it's not null or disposed to avoid creating a new instance every time the button is clicked
+            if (_frmProductViewInstance == null || _frmProductViewInstance.IsDisposed)
+            {
+                _frmProductViewInstance = new frmProductView();
+            }
 
+            AddControls(_frmProductViewInstance);
+            //_frmProductViewInstance.GetData(); // Force refresh data
         }
 
-        private void pictureBox1_Click(object sender, System.EventArgs e)
-        {
 
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, System.EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, System.EventArgs e)
-        {
-
-        }
-
-        private void radioButton5_CheckedChanged(object sender, System.EventArgs e)
-        {
-
-        }
-
-        private void radioButton6_CheckedChanged(object sender, System.EventArgs e)
-        {
-
-        }
-
-        private void radioButton7_CheckedChanged(object sender, System.EventArgs e)
-        {
-
-        }
-
+        // When main form is loaded
         private void frmMain_Load(object sender, System.EventArgs e)
         {
             lblUser.Text = MainClass.USER;
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
 
         #region Helper Methods
         // A method used to open forms inside current panel

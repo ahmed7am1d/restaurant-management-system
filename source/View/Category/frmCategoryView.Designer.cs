@@ -1,4 +1,4 @@
-﻿namespace ResturantManagmentSystem.View
+﻿namespace ResturantManagmentSystem.View.Category
 {
     partial class frmCategoryView
     {
@@ -62,10 +62,10 @@
             this.catName,
             this.dgvedit,
             this.dgvdel});
-            this.dataGridView1.Location = new System.Drawing.Point(17, 133);
+            this.dataGridView1.Location = new System.Drawing.Point(49, 133);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(767, 293);
+            this.dataGridView1.Size = new System.Drawing.Size(735, 293);
             this.dataGridView1.TabIndex = 5;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick_1);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
@@ -88,7 +88,7 @@
             // 
             this.dgvedit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.dgvedit.FillWeight = 50F;
-            this.dgvedit.HeaderText = "";
+            this.dgvedit.HeaderText = "Edit Action";
             this.dgvedit.Image = ((System.Drawing.Image)(resources.GetObject("dgvedit.Image")));
             this.dgvedit.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.dgvedit.MinimumWidth = 50;
@@ -100,7 +100,7 @@
             // 
             this.dgvdel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.dgvdel.FillWeight = 50F;
-            this.dgvdel.HeaderText = "";
+            this.dgvdel.HeaderText = "Delete Action";
             this.dgvdel.Image = ((System.Drawing.Image)(resources.GetObject("dgvdel.Image")));
             this.dgvdel.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.dgvdel.MinimumWidth = 50;

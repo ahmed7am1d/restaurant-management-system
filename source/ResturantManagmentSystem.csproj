@@ -67,10 +67,10 @@
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
     <Compile Include="MainClass.cs" />
-    <Compile Include="View\frmCategoryAdd.cs">
+    <Compile Include="View\Category\frmCategoryAdd.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\frmCategoryAdd.Designer.cs">
+    <Compile Include="View\Category\frmCategoryAdd.Designer.cs">
       <DependentUpon>frmCategoryAdd.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -87,11 +87,23 @@
     <Compile Include="SampleView.Designer.cs">
       <DependentUpon>SampleView.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\frmCategoryView.cs">
+    <Compile Include="View\Category\frmCategoryView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\frmCategoryView.Designer.cs">
+    <Compile Include="View\Category\frmCategoryView.Designer.cs">
       <DependentUpon>frmCategoryView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Product\frmProductAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Product\frmProductAdd.Designer.cs">
+      <DependentUpon>frmProductAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Product\frmProductView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Product\frmProductView.Designer.cs">
+      <DependentUpon>frmProductView.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="frmHome.resx">
       <DependentUpon>frmHome.cs</DependentUpon>
@@ -102,7 +114,7 @@
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\frmCategoryAdd.resx">
+    <EmbeddedResource Include="View\Category\frmCategoryAdd.resx">
       <DependentUpon>frmCategoryAdd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -121,8 +133,14 @@
     <EmbeddedResource Include="SampleView.resx">
       <DependentUpon>SampleView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\frmCategoryView.resx">
+    <EmbeddedResource Include="View\Category\frmCategoryView.resx">
       <DependentUpon>frmCategoryView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Product\frmProductAdd.resx">
+      <DependentUpon>frmProductAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Product\frmProductView.resx">
+      <DependentUpon>frmProductView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -148,6 +166,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\add-product.png" />
+    <Content Include="Resources\delete-icon.png" />
+    <Content Include="Resources\edit-icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
