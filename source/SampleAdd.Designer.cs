@@ -58,7 +58,7 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(122, 47);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 25);
+            this.label1.Size = new System.Drawing.Size(117, 38);
             this.label1.TabIndex = 3;
             this.label1.Text = "Header";
             // 
@@ -93,7 +93,7 @@
             this.btnSave.TabIndex = 2;
             this.btnSave.Text = "SAVE";
             this.btnSave.UseVisualStyleBackColor = false;
-            this.btnSave.Click += new System.EventHandler(this.SaveCategoryButton_Click);
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnClose
             // 

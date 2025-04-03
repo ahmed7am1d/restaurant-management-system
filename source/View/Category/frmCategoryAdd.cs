@@ -7,7 +7,7 @@ namespace ResturantManagmentSystem.View.Category
     public partial class frmCategoryAdd: SampleAdd
     {
         public event EventHandler CategoryAdded;
-        public int id = 0;
+        public int id = 0; // Used to determine if we're adding a new category or editing existing
 
         public frmCategoryAdd()
         {
@@ -20,9 +20,8 @@ namespace ResturantManagmentSystem.View.Category
             txtName.Focus();
         }
 
-        public override void SaveCategoryButton_Click(object sender, EventArgs e)
+        public override void btnSave_Click(object sender, EventArgs e)
         {
-
             if (string.IsNullOrEmpty(txtName.Text))
             {
                 MessageBox.Show("Please enter category name", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

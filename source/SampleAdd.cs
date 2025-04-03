@@ -10,7 +10,7 @@ namespace ResturantManagmentSystem
             InitializeComponent();
         }
 
-        public virtual void SaveCategoryButton_Click(object sender, EventArgs e)
+        public virtual void btnSave_Click(object sender, EventArgs e)
         {
 
         }
