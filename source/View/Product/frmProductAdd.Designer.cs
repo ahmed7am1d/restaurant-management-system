@@ -157,13 +157,13 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox txtName;
-        private System.Windows.Forms.TextBox txtPrice;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.RichTextBox txtDescription;
-        private System.Windows.Forms.ComboBox cmbCategory;
-        private System.Windows.Forms.Label label5;
+        public System.Windows.Forms.TextBox txtName;
+        public System.Windows.Forms.TextBox txtPrice;
+        public System.Windows.Forms.Label label2;
+        public System.Windows.Forms.Label label3;
+        public System.Windows.Forms.Label label4;
+        public System.Windows.Forms.RichTextBox txtDescription;
+        public System.Windows.Forms.ComboBox cmbCategory;
+        public System.Windows.Forms.Label label5;
     }
 }

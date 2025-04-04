@@ -56,6 +56,16 @@ namespace ResturantManagmentSystem.View.Product
 
             // Load categories into the combo box
             LoadCategories();
+
+            // Update the form title based on the operation
+            if (id == 0)
+            {
+                this.label1.Text = "Add Menu Item"; // Assuming label1 is your header label
+            }
+            else
+            {
+                this.label1.Text = "Edit Menu Item";
+            }
         }
 
         private void LoadCategories()

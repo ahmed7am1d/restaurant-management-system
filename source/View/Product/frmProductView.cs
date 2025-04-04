@@ -73,6 +73,40 @@ namespace ResturantManagmentSystem.View.Product
             }
         }
 
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Check if the clicked cell is in the delete column
+            if (e.ColumnIndex == dataGridView1.Columns["dgvDel"].Index && e.RowIndex >= 0)
+            {
+                // Get the product ID
+                int productId = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["pID"].Value);
+
+                // Confirm deletion
+                DialogResult result = MessageBox.Show(
+                    "Are you sure you want to delete this menu item?",
+                    "Confirm Delete",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question
+                );
+
+                if (result == DialogResult.Yes)
+                {
+                    // Delete the product
+                    DeleteProduct(productId);
+                }
+            }
+
+            // Check if the clicked cell is in the edit column
+            if (e.ColumnIndex == dataGridView1.Columns["dgvEdit"].Index && e.RowIndex >= 0)
+            {
+                // Get the product ID
+                int productId = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["pID"].Value);
+
+                // Open the edit form with the selected product data
+                EditProduct(productId);
+            }
+        }
+
 
         #region Helper Methods
         // Method used to get data from the database and display it in the DataGridView
@@ -104,6 +138,94 @@ namespace ResturantManagmentSystem.View.Product
             {
                 MessageBox.Show("Error loading products: " + ex.Message,
                               "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void DeleteProduct(int productId)
+        {
+            try
+            {
+                string query = "DELETE FROM products WHERE pID = @pID";
+
+                using (SqlConnection con = MainClass.GetConnection())
+                {
+                    con.Open();
+                    using (SqlCommand cmd = new SqlCommand(query, con))
+                    {
+                        cmd.Parameters.AddWithValue("@pID", productId);
+
+                        int result = cmd.ExecuteNonQuery();
+
+                        if (result > 0)
+                        {
+                            MessageBox.Show("Menu item deleted successfully.",
+                                "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            // Refresh the data
+                            GetData();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error deleting product: " + ex.Message,
+                    "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void EditProduct(int productId)
+        {
+            try
+            {
+                // Create a query to get the product data
+                string query = "SELECT * FROM products WHERE pID = @pID";
+
+                using (SqlConnection con = MainClass.GetConnection())
+                {
+                    con.Open();
+                    using (SqlCommand cmd = new SqlCommand(query, con))
+                    {
+                        cmd.Parameters.AddWithValue("@pID", productId);
+
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                // Store the categoryId value
+                                int categoryId = Convert.ToInt32(reader["catID"]);
+
+                                // Create and configure the Product Add form
+                                frmProductAdd frm = new frmProductAdd();
+
+                                // Set the ID to indicate we're editing
+                                frm.id = productId;
+
+                                // Fill the form with the product data
+                                frm.txtName.Text = reader["pName"].ToString();
+                                frm.txtPrice.Text = reader["pPrice"].ToString();
+                                frm.txtDescription.Text = reader["pDescription"].ToString();
+
+                                // Subscribe to the ProductAdded event
+                                frm.ProductAdded += (s, args) => GetData();
+
+                                // Handle the Load event to set the category after categories are loaded
+                                frm.Load += (s, args) => {
+                                    // Set the selected category after the form has loaded its data
+                                    frm.cmbCategory.SelectedValue = categoryId;
+                                };
+
+                                // Show the form
+                                frm.ShowDialog();
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading product details: " + ex.Message,
+                    "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

@@ -69,6 +69,7 @@
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.Size = new System.Drawing.Size(1200, 295);
             this.dataGridView1.TabIndex = 5;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // pID
             // 
@@ -155,11 +156,11 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pDescription;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn catName;
+        public System.Windows.Forms.DataGridViewTextBoxColumn pID;
+        public System.Windows.Forms.DataGridViewTextBoxColumn pName;
+        public System.Windows.Forms.DataGridViewTextBoxColumn pDescription;
+        public System.Windows.Forms.DataGridViewTextBoxColumn pPrice;
+        public System.Windows.Forms.DataGridViewTextBoxColumn catName;
         private System.Windows.Forms.DataGridViewImageColumn dgvEdit;
         private System.Windows.Forms.DataGridViewImageColumn dgvDel;
     }
