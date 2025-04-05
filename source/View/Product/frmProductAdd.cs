@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace ResturantManagmentSystem.View.Product
 {
-    public partial class frmProductAdd : SampleAdd
+    public partial class frmProductAdd : ResturantManagmentSystem.SampleAdd
     {
         public event EventHandler ProductAdded;
         public int id = 0; // Used to determine if we're adding a new product or editing existing

@@ -1,25 +1,29 @@
-﻿using System;
+﻿using ResturantManagmentSystem.View.Product;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
+using System.Text;
 using System.Windows.Forms;
 
-namespace ResturantManagmentSystem.View.Product
+namespace ResturantManagmentSystem.View.Staff
 {
-    public partial class frmProductView : SampleView
+    public partial class frmStaffView : ResturantManagmentSystem.SampleView
     {
-        public frmProductView()
+        public frmStaffView()
         {
             InitializeComponent();
-            this.Load += FrmProductView_Load;
         }
 
         // Method called when the Add button is clicked to open the Add form
         public override void btnAdd_Click(object sender, EventArgs e)
         {
-            frmProductAdd frm = new frmProductAdd();
+            frmStaffAdd frm = new frmStaffAdd();
 
             // Subscribe to the event CategoryAdded
-            frm.ProductAdded += (s, args) => GetData();
+            frm.StaffAdded += (s, args) => GetData();
 
             frm.ShowDialog();
         }
@@ -38,11 +42,10 @@ namespace ResturantManagmentSystem.View.Product
                     return;
                 }
 
-                // Create a query that filters products by name or description
-                string query = "SELECT p.pID, p.pName, p.pDescription, p.pPrice, c.catName " +
-                       "FROM products p " +
-                       "INNER JOIN category c ON p.catID = c.catID " +
-                       "WHERE p.pName LIKE @searchTerm OR p.pDescription LIKE @searchTerm";
+                // Create a query that filters staff by first name, last name, or position
+                string query = "SELECT staffID, firstName, lastName, phone, email, position, salary, hireDate, active " +
+                              "FROM staff " +
+                              "WHERE firstName LIKE @searchTerm OR lastName LIKE @searchTerm OR position LIKE @searchTerm";
 
                 DataTable dt = new DataTable();
 
@@ -67,22 +70,32 @@ namespace ResturantManagmentSystem.View.Product
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error searching products: " + ex.Message,
+                MessageBox.Show("Error searching staff: " + ex.Message,
                     "Search Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            // Check if the clicked cell is in the edit column
+            if (e.ColumnIndex == dataGridView1.Columns["dgvEdit"].Index && e.RowIndex >= 0)
+            {
+                // Get the staff ID
+                int staffId = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["staffID"].Value);
+
+                // Open the edit form with the selected staff data
+                EditStaff(staffId);
+            }
+
             // Check if the clicked cell is in the delete column
             if (e.ColumnIndex == dataGridView1.Columns["dgvDel"].Index && e.RowIndex >= 0)
             {
-                // Get the product ID
-                int productId = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["pID"].Value);
+                // Get the staff ID
+                int staffId = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["staffID"].Value);
 
                 // Confirm deletion
                 DialogResult result = MessageBox.Show(
-                    "Are you sure you want to delete this menu item?",
+                    "Are you sure you want to delete this staff member?",
                     "Confirm Delete",
                     MessageBoxButtons.YesNo,
                     MessageBoxIcon.Question
@@ -90,22 +103,11 @@ namespace ResturantManagmentSystem.View.Product
 
                 if (result == DialogResult.Yes)
                 {
-                    // Delete the product
-                    DeleteProduct(productId);
+                    // Delete the staff
+                    DeleteStaff(staffId);
                 }
             }
-
-            // Check if the clicked cell is in the edit column
-            if (e.ColumnIndex == dataGridView1.Columns["dgvEdit"].Index && e.RowIndex >= 0)
-            {
-                // Get the product ID
-                int productId = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["pID"].Value);
-
-                // Open the edit form with the selected product data
-                EditProduct(productId);
-            }
         }
-
 
         #region Helper Methods
         // Method used to get data from the database and display it in the DataGridView
@@ -113,12 +115,9 @@ namespace ResturantManagmentSystem.View.Product
         {
             try
             {
-                // Using aliases for all columns and ordering them as needed
-                string query = "SELECT p.pID, p.pName, p.pDescription, p.pPrice, c.catName " +
-                               "FROM products p INNER JOIN category c ON p.catID = c.catID";
+                string query = "SELECT staffID, firstName, lastName, phone, email, position, salary, hireDate, active FROM staff";
                 DataTable dt = new DataTable();
 
-                // Create a fresh connection each time using the GetConnection method
                 using (SqlConnection con = MainClass.GetConnection())
                 {
                     con.Open();
@@ -129,35 +128,33 @@ namespace ResturantManagmentSystem.View.Product
                     }
                 }
 
-                // Set the DataSource
                 dataGridView1.DataSource = dt;
-
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error loading products: " + ex.Message,
-                              "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error loading staff data: " + ex.Message,
+                    "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void DeleteProduct(int productId)
+        private void DeleteStaff(int staffId)
         {
             try
             {
-                string query = "DELETE FROM products WHERE pID = @pID";
+                string query = "DELETE FROM staff WHERE staffID = @staffID";
 
                 using (SqlConnection con = MainClass.GetConnection())
                 {
                     con.Open();
                     using (SqlCommand cmd = new SqlCommand(query, con))
                     {
-                        cmd.Parameters.AddWithValue("@pID", productId);
+                        cmd.Parameters.AddWithValue("@staffID", staffId);
 
                         int result = cmd.ExecuteNonQuery();
 
                         if (result > 0)
                         {
-                            MessageBox.Show("Menu item deleted successfully.",
+                            MessageBox.Show("Staff member deleted successfully.",
                                 "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                             // Refresh the data
@@ -168,51 +165,47 @@ namespace ResturantManagmentSystem.View.Product
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error deleting product: " + ex.Message,
+                MessageBox.Show("Error deleting staff: " + ex.Message,
                     "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void EditProduct(int productId)
+        private void EditStaff(int staffId)
         {
             try
             {
-                // Create a query to get the product data
-                string query = "SELECT * FROM products WHERE pID = @pID";
+                // Create a query to get the staff data
+                string query = "SELECT * FROM staff WHERE staffID = @staffID";
 
                 using (SqlConnection con = MainClass.GetConnection())
                 {
                     con.Open();
                     using (SqlCommand cmd = new SqlCommand(query, con))
                     {
-                        cmd.Parameters.AddWithValue("@pID", productId);
+                        cmd.Parameters.AddWithValue("@staffID", staffId);
 
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {
                             if (reader.Read())
                             {
-                                // Store the categoryId value
-                                int categoryId = Convert.ToInt32(reader["catID"]);
-
-                                // Create and configure the Product Add form
-                                frmProductAdd frm = new frmProductAdd();
+                                // Create and configure the Staff Add form
+                                frmStaffAdd frm = new frmStaffAdd();
 
                                 // Set the ID to indicate we're editing
-                                frm.id = productId;
+                                frm.id = staffId;
 
-                                // Fill the form with the product data
-                                frm.txtName.Text = reader["pName"].ToString();
-                                frm.txtPrice.Text = reader["pPrice"].ToString();
-                                frm.txtDescription.Text = reader["pDescription"].ToString();
+                                // Fill the form with the staff data
+                                frm.txtFirstName.Text = reader["firstName"].ToString();
+                                frm.txtLastName.Text = reader["lastName"].ToString();
+                                frm.txtPhone.Text = reader["phone"].ToString();
+                                frm.txtEmail.Text = reader["email"].ToString();
+                                frm.txtPosition.Text = reader["position"].ToString();
+                                frm.txtSalary.Text = reader["salary"].ToString();
+                                frm.dtpHireDate.Value = Convert.ToDateTime(reader["hireDate"]);
+                                frm.chkActive.Checked = Convert.ToBoolean(reader["active"]);
 
-                                // Subscribe to the ProductAdded event
-                                frm.ProductAdded += (s, args) => GetData();
-
-                                // Handle the Load event to set the category after categories are loaded
-                                frm.Load += (s, args) => {
-                                    // Set the selected category after the form has loaded its data
-                                    frm.cmbCategory.SelectedValue = categoryId;
-                                };
+                                // Subscribe to the StaffAdded event
+                                frm.StaffAdded += (s, args) => GetData();
 
                                 // Show the form
                                 frm.ShowDialog();
@@ -223,16 +216,17 @@ namespace ResturantManagmentSystem.View.Product
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error loading product details: " + ex.Message,
+                MessageBox.Show("Error loading staff details: " + ex.Message,
                     "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void FrmProductView_Load(object sender, EventArgs e)
+        private void FrmStaffView_Load(object sender, EventArgs e)
         {
             GetData(); // Call GetData when the form is fully loaded
         }
 
         #endregion  
+
     }
 }

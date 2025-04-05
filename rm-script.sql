@@ -70,3 +70,28 @@ VALUES
 ('T4', 8, 'Private Room', 'Available', 'Reservation required'),
 ('T5', 2, 'Bar Area', 'Available', 'High chairs')
 GO
+
+
+-- Staff table and data insertion
+CREATE TABLE staff (
+    staffID INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+    firstName VARCHAR(50) NOT NULL,
+    lastName VARCHAR(50) NOT NULL,
+    phone VARCHAR(20) NULL,
+    email VARCHAR(100) NULL,
+    position VARCHAR(50) NOT NULL,  -- Manager, Waiter, Chef, etc.
+    salary DECIMAL(10,2) NULL,
+    hireDate DATE NOT NULL,
+    active BIT DEFAULT 1 -- 1 for active, 0 for inactive
+)
+GO
+
+
+INSERT INTO staff (firstName, lastName, phone, email, position, salary, hireDate, active)
+VALUES 
+('John', 'Smith', '123-456-7890', 'john.smith@email.com', 'Manager', 5000.00, '2020-01-15', 1),
+('Maria', 'Rodriguez', '234-567-8901', 'maria.rodriguez@email.com', 'Head Chef', 4500.00, '2020-03-10', 1),
+('David', 'Johnson', '345-678-9012', 'david.johnson@email.com', 'Waiter', 2500.00, '2021-06-20', 1),
+('Sarah', 'Williams', '456-789-0123', 'sarah.williams@email.com', 'Hostess', 2300.00, '2021-08-05', 1),
+('James', 'Brown', '567-890-1234', 'james.brown@email.com', 'Bartender', 2800.00, '2022-01-12', 1)
+GO

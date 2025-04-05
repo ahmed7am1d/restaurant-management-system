@@ -110,6 +110,18 @@
     <Compile Include="View\Product\frmProductView.Designer.cs">
       <DependentUpon>frmProductView.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Staff\frmStaffAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Staff\frmStaffAdd.Designer.cs">
+      <DependentUpon>frmStaffAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Staff\frmStaffView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Staff\frmStaffView.Designer.cs">
+      <DependentUpon>frmStaffView.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Table\frmTableAdd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -155,6 +167,12 @@
     <EmbeddedResource Include="View\Product\frmProductView.resx">
       <DependentUpon>frmProductView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\Staff\frmStaffAdd.resx">
+      <DependentUpon>frmStaffAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Staff\frmStaffView.resx">
+      <DependentUpon>frmStaffView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Table\frmTableAdd.resx">
       <DependentUpon>frmTableAdd.cs</DependentUpon>
     </EmbeddedResource>
@@ -191,6 +209,7 @@
     <Content Include="Resources\delete-icon.png" />
     <Content Include="Resources\edit-icon.png" />
     <None Include="Resources\rest-table-icon.png" />
+    <Content Include="Resources\staff-icon.png" />
     <Content Include="Resources\user-icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

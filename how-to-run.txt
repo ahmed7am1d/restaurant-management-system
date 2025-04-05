@@ -1,0 +1,7 @@
+To run the project successfully:
+    1. Make sure you have MS SQL Server setup and installed
+    2. Make sure to run the script 'rm-script.sql' (Note: this will create database called RM)
+    3. Assuming you have Visual studio installed, go to folder 'source' and then open 'ResturantManagmentSystem.sln'
+    4. Inside Visual studio, go to the file called 'MainClass.cs' and edit the variable 'con_string' and put your MS SQL Server credentials.
+    5. Run the project
+    6. For login use username 'admin' and password '123'.

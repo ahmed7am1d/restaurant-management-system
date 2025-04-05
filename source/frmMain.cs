@@ -1,5 +1,6 @@
 ﻿using ResturantManagmentSystem.View.Category;
 using ResturantManagmentSystem.View.Product;
+using ResturantManagmentSystem.View.Staff;
 using ResturantManagmentSystem.View.Table;
 using System.Windows.Forms;
 
@@ -13,6 +14,7 @@ namespace ResturantManagmentSystem
         private frmCategoryView categoryViewInstance;
         private frmProductView _frmProductViewInstance;
         private frmTableView _frmTableViewInstance;
+        private frmStaffView _frmStaffViewInstance;
 
         public frmMain()
         {
@@ -68,6 +70,19 @@ namespace ResturantManagmentSystem
 
             AddControls(_frmTableViewInstance);
             _frmTableViewInstance.GetData(); // Force refresh data
+        }
+
+        // When Staff button gets clicked
+        private void StaffButton_Clicked(object sender, System.EventArgs e)
+        {
+            // Use the instance if it's not null or disposed to avoid creating a new instance every time the button is clicked
+            if (_frmStaffViewInstance == null || _frmStaffViewInstance.IsDisposed)
+            {
+                _frmStaffViewInstance = new frmStaffView();
+            }
+
+            AddControls(_frmStaffViewInstance);
+            _frmStaffViewInstance.GetData(); // Force refresh data
         }
 
         // When main form is loaded
