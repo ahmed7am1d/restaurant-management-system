@@ -43,6 +43,7 @@
             this.btnMinus = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnBillList = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).BeginInit();
             this.SuspendLayout();
             // 
@@ -198,11 +199,24 @@
             this.label3.TabIndex = 8;
             this.label3.Text = "Order items:";
             // 
+            // btnBillList
+            // 
+            this.btnBillList.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBillList.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBillList.Location = new System.Drawing.Point(370, 12);
+            this.btnBillList.Name = "btnBillList";
+            this.btnBillList.Size = new System.Drawing.Size(173, 40);
+            this.btnBillList.TabIndex = 9;
+            this.btnBillList.Text = "Bill List";
+            this.btnBillList.UseVisualStyleBackColor = true;
+            this.btnBillList.Click += new System.EventHandler(this.btnBillList_Click);
+            // 
             // frmPOSView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1872, 732);
+            this.Controls.Add(this.btnBillList);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnClearOrder);
@@ -236,5 +250,6 @@
         private System.Windows.Forms.DataGridViewButtonColumn btnMinus;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnBillList;
     }
 }

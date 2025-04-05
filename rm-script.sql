@@ -95,3 +95,75 @@ VALUES
 ('Sarah', 'Williams', '456-789-0123', 'sarah.williams@email.com', 'Hostess', 2300.00, '2021-08-05', 1),
 ('James', 'Brown', '567-890-1234', 'james.brown@email.com', 'Bartender', 2800.00, '2022-01-12', 1)
 GO
+
+-- Order table and data insertion
+CREATE TABLE orders (
+    orderID INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+    tableID INT NOT NULL,  
+    employeeID INT NOT NULL, -- Staff member who took the order
+    orderDate DATETIME NOT NULL DEFAULT GETDATE(),
+    status VARCHAR(20) NOT NULL DEFAULT 'New', -- New, Completed, Paid
+    totalAmount DECIMAL(10,2) NOT NULL DEFAULT 0,
+    notes VARCHAR(255) NULL,
+    FOREIGN KEY (tableID) REFERENCES [tables](tableID),
+    FOREIGN KEY (employeeID) REFERENCES staff(staffID)
+)
+GO
+
+-- Insert sample orders in different statuses
+INSERT INTO orders (tableID, employeeID, orderDate, status, totalAmount)
+VALUES 
+(1, 3, DATEADD(HOUR, -5, GETDATE()), 'New', 19.97),         -- New order for kitchen
+(2, 3, DATEADD(HOUR, -4, GETDATE()), 'New', 26.97),         -- New order for kitchen
+(3, 3, DATEADD(HOUR, -3, GETDATE()), 'Completed', 32.98),   -- Completed but not paid
+(4, 3, DATEADD(HOUR, -2, GETDATE()), 'Completed', 16.99),   -- Completed but not paid
+(5, 3, DATEADD(HOUR, -1, GETDATE()), 'Paid', 27.98)         -- Fully paid order
+GO
+
+-- Order items table and data insertion
+CREATE TABLE orderItems (
+    orderItemID INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+    orderID INT NOT NULL,
+    productID INT NOT NULL,
+    quantity INT NOT NULL DEFAULT 1,
+    unitPrice DECIMAL(10,2) NOT NULL,
+    subTotal DECIMAL(10,2) NOT NULL, -- unitPrice * quantity
+    notes VARCHAR(255) NULL, -- Special instructions for the item
+    FOREIGN KEY (orderID) REFERENCES orders(orderID),
+    FOREIGN KEY (productID) REFERENCES products(pID)
+)
+GO
+
+-- Insert sample order items for all orders
+-- Order 1 items (New)
+INSERT INTO orderItems (orderID, productID, quantity, unitPrice, subTotal)
+VALUES 
+(1, 1, 2, 5.99, 11.98), -- 2 Scrambled Eggs
+(1, 4, 1, 7.99, 7.99);  -- 1 Pancakes
+
+-- Order 2 items (New)
+INSERT INTO orderItems (orderID, productID, quantity, unitPrice, subTotal)
+VALUES 
+(2, 3, 2, 8.99, 17.98), -- 2 Chicken Sandwich
+(2, 4, 1, 6.99, 6.99),  -- 1 Caesar Salad
+(2, 1, 1, 5.99, 5.99);  -- 1 Scrambled Eggs
+
+-- Order 3 items (Completed)
+INSERT INTO orderItems (orderID, productID, quantity, unitPrice, subTotal)
+VALUES 
+(3, 5, 1, 19.99, 19.99), -- 1 Steak Dinner
+(3, 4, 1, 6.99, 6.99),   -- 1 Caesar Salad
+(3, 1, 1, 5.99, 5.99);   -- 1 Scrambled Eggs
+
+-- Order 4 items (Completed)
+INSERT INTO orderItems (orderID, productID, quantity, unitPrice, subTotal)
+VALUES 
+(4, 6, 1, 16.99, 16.99); -- 1 Grilled Salmon
+
+-- Order 5 items (Paid)
+INSERT INTO orderItems (orderID, productID, quantity, unitPrice, subTotal)
+VALUES 
+(5, 3, 2, 8.99, 17.98), -- 2 Chicken Sandwich
+(5, 4, 1, 6.99, 6.99),  -- 1 Caesar Salad
+(5, 2, 1, 7.99, 7.99);  -- 1 Pancakes
+GO

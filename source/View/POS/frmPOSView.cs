@@ -1,13 +1,11 @@
-﻿using ResturantManagmentSystem.View.Order;
+﻿using ResturantManagmentSystem.View.Bill;
+using ResturantManagmentSystem.View.Order;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ResturantManagmentSystem.View.POS
@@ -124,6 +122,15 @@ namespace ResturantManagmentSystem.View.POS
                     // Save the order to the database
                     SaveOrder(tableId, waiterId);
                 }
+            }
+        }
+
+        private void btnBillList_Click(object sender, EventArgs e)
+        {
+            // Open the bill list form
+            using (frmBillList billList = new frmBillList())
+            {
+                billList.ShowDialog();
             }
         }
 
