@@ -1,4 +1,5 @@
 ﻿using ResturantManagmentSystem.View.Category;
+using ResturantManagmentSystem.View.POS;
 using ResturantManagmentSystem.View.Product;
 using ResturantManagmentSystem.View.Staff;
 using ResturantManagmentSystem.View.Table;
@@ -15,6 +16,7 @@ namespace ResturantManagmentSystem
         private frmProductView _frmProductViewInstance;
         private frmTableView _frmTableViewInstance;
         private frmStaffView _frmStaffViewInstance;
+        private frmPOSView _frmPOSInstance;
 
         public frmMain()
         {
@@ -85,6 +87,18 @@ namespace ResturantManagmentSystem
             _frmStaffViewInstance.GetData(); // Force refresh data
         }
 
+        // When POS button gets clicked
+        private void POSButton_Clicked(object sender, System.EventArgs e)
+        {
+            // Use the instance if it's not null or disposed to avoid creating a new instance every time the button is clicked
+            if (_frmPOSInstance == null || _frmPOSInstance.IsDisposed)
+            {
+                _frmPOSInstance = new frmPOSView();
+            }
+
+            AddControls(_frmPOSInstance);
+            // _frmPOSInstance.GetData(); // Force refresh data
+        }
         // When main form is loaded
         private void frmMain_Load(object sender, System.EventArgs e)
         {

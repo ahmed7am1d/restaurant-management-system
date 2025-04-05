@@ -98,6 +98,18 @@
     <Compile Include="View\Category\frmCategoryView.Designer.cs">
       <DependentUpon>frmCategoryView.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Order\frmOrderDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Order\frmOrderDetails.Designer.cs">
+      <DependentUpon>frmOrderDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\POS\frmPOSView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\POS\frmPOSView.Designer.cs">
+      <DependentUpon>frmPOSView.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Product\frmProductAdd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -160,6 +172,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Category\frmCategoryView.resx">
       <DependentUpon>frmCategoryView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Order\frmOrderDetails.resx">
+      <DependentUpon>frmOrderDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\POS\frmPOSView.resx">
+      <DependentUpon>frmPOSView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Product\frmProductAdd.resx">
       <DependentUpon>frmProductAdd.cs</DependentUpon>

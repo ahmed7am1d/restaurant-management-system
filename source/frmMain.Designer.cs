@@ -65,9 +65,8 @@
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(412, 915);
+            this.panel1.Size = new System.Drawing.Size(275, 610);
             this.panel1.TabIndex = 0;
             // 
             // btnSettings
@@ -80,10 +79,9 @@
             this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnSettings.Font = new System.Drawing.Font("Segoe UI Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSettings.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnSettings.Location = new System.Drawing.Point(118, 730);
-            this.btnSettings.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSettings.Location = new System.Drawing.Point(79, 487);
             this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Size = new System.Drawing.Size(184, 33);
+            this.btnSettings.Size = new System.Drawing.Size(120, 22);
             this.btnSettings.TabIndex = 9;
             this.btnSettings.Text = "      Setting     ";
             this.btnSettings.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -100,10 +98,9 @@
             this.btnKitchen.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnKitchen.Font = new System.Drawing.Font("Segoe UI Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnKitchen.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnKitchen.Location = new System.Drawing.Point(116, 664);
-            this.btnKitchen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnKitchen.Location = new System.Drawing.Point(77, 443);
             this.btnKitchen.Name = "btnKitchen";
-            this.btnKitchen.Size = new System.Drawing.Size(188, 33);
+            this.btnKitchen.Size = new System.Drawing.Size(123, 22);
             this.btnKitchen.TabIndex = 8;
             this.btnKitchen.Text = "        Kitchen   ";
             this.btnKitchen.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -119,15 +116,15 @@
             this.btnPOS.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnPOS.Font = new System.Drawing.Font("Segoe UI Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPOS.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnPOS.Location = new System.Drawing.Point(116, 598);
-            this.btnPOS.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnPOS.Location = new System.Drawing.Point(77, 399);
             this.btnPOS.Name = "btnPOS";
-            this.btnPOS.Size = new System.Drawing.Size(183, 33);
+            this.btnPOS.Size = new System.Drawing.Size(122, 22);
             this.btnPOS.TabIndex = 7;
             this.btnPOS.Text = "        POS        ";
             this.btnPOS.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnPOS.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnPOS.UseVisualStyleBackColor = false;
+            this.btnPOS.CheckedChanged += new System.EventHandler(this.POSButton_Clicked);
             // 
             // btnStaff
             // 
@@ -139,10 +136,9 @@
             this.btnStaff.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnStaff.Font = new System.Drawing.Font("Segoe UI Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStaff.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnStaff.Location = new System.Drawing.Point(116, 532);
-            this.btnStaff.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnStaff.Location = new System.Drawing.Point(77, 355);
             this.btnStaff.Name = "btnStaff";
-            this.btnStaff.Size = new System.Drawing.Size(174, 33);
+            this.btnStaff.Size = new System.Drawing.Size(115, 22);
             this.btnStaff.TabIndex = 6;
             this.btnStaff.Text = "       Staff      ";
             this.btnStaff.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -160,10 +156,9 @@
             this.btnTable.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnTable.Font = new System.Drawing.Font("Segoe UI Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTable.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnTable.Location = new System.Drawing.Point(114, 466);
-            this.btnTable.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnTable.Location = new System.Drawing.Point(76, 311);
             this.btnTable.Name = "btnTable";
-            this.btnTable.Size = new System.Drawing.Size(178, 33);
+            this.btnTable.Size = new System.Drawing.Size(116, 22);
             this.btnTable.TabIndex = 5;
             this.btnTable.Text = "      Tables     ";
             this.btnTable.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -181,10 +176,9 @@
             this.btnProduct.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnProduct.Font = new System.Drawing.Font("Segoe UI Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProduct.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnProduct.Location = new System.Drawing.Point(116, 400);
-            this.btnProduct.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnProduct.Location = new System.Drawing.Point(77, 267);
             this.btnProduct.Name = "btnProduct";
-            this.btnProduct.Size = new System.Drawing.Size(179, 33);
+            this.btnProduct.Size = new System.Drawing.Size(116, 22);
             this.btnProduct.TabIndex = 4;
             this.btnProduct.Text = "    Products   ";
             this.btnProduct.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -202,10 +196,9 @@
             this.btnCategories.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnCategories.Font = new System.Drawing.Font("Segoe UI Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCategories.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnCategories.Location = new System.Drawing.Point(114, 334);
-            this.btnCategories.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCategories.Location = new System.Drawing.Point(76, 223);
             this.btnCategories.Name = "btnCategories";
-            this.btnCategories.Size = new System.Drawing.Size(183, 33);
+            this.btnCategories.Size = new System.Drawing.Size(118, 22);
             this.btnCategories.TabIndex = 3;
             this.btnCategories.Text = "   Categories  ";
             this.btnCategories.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -223,10 +216,9 @@
             this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnHome.Font = new System.Drawing.Font("Segoe UI Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHome.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnHome.Location = new System.Drawing.Point(114, 268);
-            this.btnHome.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnHome.Location = new System.Drawing.Point(76, 179);
             this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(173, 33);
+            this.btnHome.Size = new System.Drawing.Size(113, 22);
             this.btnHome.TabIndex = 2;
             this.btnHome.Text = "      Home     ";
             this.btnHome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -240,10 +232,9 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Segoe UI Black", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(51, 156);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(34, 104);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(288, 64);
+            this.label1.Size = new System.Drawing.Size(194, 42);
             this.label1.TabIndex = 1;
             this.label1.Text = "Resturant Managment \r\n              System";
             // 
@@ -251,10 +242,9 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Indigo;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(118, 22);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Location = new System.Drawing.Point(79, 15);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(150, 129);
+            this.pictureBox1.Size = new System.Drawing.Size(100, 86);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -266,19 +256,17 @@
             this.panel2.Controls.Add(this.pictureBox2);
             this.panel2.Controls.Add(this.lblUser);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(412, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Location = new System.Drawing.Point(275, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(990, 88);
+            this.panel2.Size = new System.Drawing.Size(660, 60);
             this.panel2.TabIndex = 2;
             // 
             // pictureBox2
             // 
             this.pictureBox2.Image = global::ResturantManagmentSystem.Properties.Resources.user_icon;
-            this.pictureBox2.Location = new System.Drawing.Point(22, 15);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox2.Location = new System.Drawing.Point(15, 10);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(52, 50);
+            this.pictureBox2.Size = new System.Drawing.Size(35, 33);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 11;
             this.pictureBox2.TabStop = false;
@@ -289,10 +277,9 @@
             this.lblUser.BackColor = System.Drawing.Color.Transparent;
             this.lblUser.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUser.ForeColor = System.Drawing.Color.White;
-            this.lblUser.Location = new System.Drawing.Point(84, 22);
-            this.lblUser.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblUser.Location = new System.Drawing.Point(56, 15);
             this.lblUser.Name = "lblUser";
-            this.lblUser.Size = new System.Drawing.Size(128, 32);
+            this.lblUser.Size = new System.Drawing.Size(87, 21);
             this.lblUser.TabIndex = 10;
             this.lblUser.Text = "username";
             this.lblUser.UseWaitCursor = true;
@@ -300,23 +287,23 @@
             // ControlPanel
             // 
             this.ControlPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ControlPanel.Location = new System.Drawing.Point(412, 88);
+            this.ControlPanel.Location = new System.Drawing.Point(275, 60);
+            this.ControlPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ControlPanel.Name = "ControlPanel";
-            this.ControlPanel.Size = new System.Drawing.Size(990, 827);
+            this.ControlPanel.Size = new System.Drawing.Size(660, 550);
             this.ControlPanel.TabIndex = 3;
             // 
             // frmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1402, 915);
+            this.ClientSize = new System.Drawing.Size(935, 610);
             this.Controls.Add(this.ControlPanel);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Resturant Managment System";
