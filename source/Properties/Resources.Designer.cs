@@ -113,6 +113,16 @@ namespace ResturantManagmentSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap kitchen_icon {
+            get {
+                object obj = ResourceManager.GetObject("kitchen-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap or {
             get {
                 object obj = ResourceManager.GetObject("or", resourceCulture);

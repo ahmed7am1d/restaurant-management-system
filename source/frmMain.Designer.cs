@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnSettings = new System.Windows.Forms.RadioButton();
             this.btnKitchen = new System.Windows.Forms.RadioButton();
             this.btnPOS = new System.Windows.Forms.RadioButton();
             this.btnStaff = new System.Windows.Forms.RadioButton();
@@ -53,7 +52,6 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Indigo;
-            this.panel1.Controls.Add(this.btnSettings);
             this.panel1.Controls.Add(this.btnKitchen);
             this.panel1.Controls.Add(this.btnPOS);
             this.panel1.Controls.Add(this.btnStaff);
@@ -68,25 +66,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(275, 610);
             this.panel1.TabIndex = 0;
-            // 
-            // btnSettings
-            // 
-            this.btnSettings.Appearance = System.Windows.Forms.Appearance.Button;
-            this.btnSettings.AutoSize = true;
-            this.btnSettings.BackColor = System.Drawing.Color.Indigo;
-            this.btnSettings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnSettings.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btnSettings.Font = new System.Drawing.Font("Segoe UI Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSettings.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnSettings.Location = new System.Drawing.Point(79, 487);
-            this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Size = new System.Drawing.Size(120, 22);
-            this.btnSettings.TabIndex = 9;
-            this.btnSettings.Text = "      Setting     ";
-            this.btnSettings.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnSettings.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnSettings.UseVisualStyleBackColor = false;
             // 
             // btnKitchen
             // 
@@ -105,6 +84,7 @@
             this.btnKitchen.Text = "        Kitchen   ";
             this.btnKitchen.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnKitchen.UseVisualStyleBackColor = false;
+            this.btnKitchen.CheckedChanged += new System.EventHandler(this.KitchenButton_Clicked);
             // 
             // btnPOS
             // 
@@ -288,7 +268,7 @@
             // 
             this.ControlPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ControlPanel.Location = new System.Drawing.Point(275, 60);
-            this.ControlPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ControlPanel.Margin = new System.Windows.Forms.Padding(2);
             this.ControlPanel.Name = "ControlPanel";
             this.ControlPanel.Size = new System.Drawing.Size(660, 550);
             this.ControlPanel.TabIndex = 3;
@@ -333,7 +313,6 @@
         private System.Windows.Forms.RadioButton btnTable;
         private System.Windows.Forms.RadioButton btnProduct;
         private System.Windows.Forms.RadioButton btnCategories;
-        private System.Windows.Forms.RadioButton btnSettings;
         private System.Windows.Forms.Label lblUser;
         private System.Windows.Forms.Panel ControlPanel;
         private System.Windows.Forms.PictureBox pictureBox2;

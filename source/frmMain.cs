@@ -1,4 +1,5 @@
 ﻿using ResturantManagmentSystem.View.Category;
+using ResturantManagmentSystem.View.Kitchen;
 using ResturantManagmentSystem.View.POS;
 using ResturantManagmentSystem.View.Product;
 using ResturantManagmentSystem.View.Staff;
@@ -17,6 +18,7 @@ namespace ResturantManagmentSystem
         private frmTableView _frmTableViewInstance;
         private frmStaffView _frmStaffViewInstance;
         private frmPOSView _frmPOSInstance;
+        private frmKitchenView _frmKitchenInstance;
 
         public frmMain()
         {
@@ -99,6 +101,21 @@ namespace ResturantManagmentSystem
             AddControls(_frmPOSInstance);
             // _frmPOSInstance.GetData(); // Force refresh data
         }
+
+
+        // When Kitchen button gets clicked
+        private void KitchenButton_Clicked(object sender, System.EventArgs e)
+        {
+            // Use the instance if it's not null or disposed to avoid creating a new instance every time the button is clicked
+            if (_frmKitchenInstance == null || _frmKitchenInstance.IsDisposed)
+            {
+                _frmKitchenInstance = new frmKitchenView();
+            }
+
+            AddControls(_frmKitchenInstance);
+            //_frmPOSInstance.GetData(); // Force refresh data
+        }
+
         // When main form is loaded
         private void frmMain_Load(object sender, System.EventArgs e)
         {

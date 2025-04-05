@@ -199,7 +199,8 @@ namespace ResturantManagmentSystem.View.POS
                                 Button btnProduct = new Button();
                                 btnProduct.Text = productName + Environment.NewLine + "$" + price.ToString("0.00");
                                 btnProduct.Size = new Size(120, 80);
-                                btnProduct.BackColor = Color.LightBlue;
+                                btnProduct.BackColor = Color.Indigo;
+                                btnProduct.ForeColor = Color.White;
                                 btnProduct.Cursor = Cursors.Hand;
                                 btnProduct.Tag = new object[] { productId, productName, price };
 

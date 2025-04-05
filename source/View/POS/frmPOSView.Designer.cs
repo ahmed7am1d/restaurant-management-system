@@ -31,9 +31,6 @@
             this.btnMakeOrder = new System.Windows.Forms.Button();
             this.flpProducts = new System.Windows.Forms.FlowLayoutPanel();
             this.dgvOrders = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblTotalOrderPrice = new System.Windows.Forms.Label();
-            this.btnClearOrder = new System.Windows.Forms.Button();
             this.productId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.unitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,6 +38,9 @@
             this.subTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnPlus = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnMinus = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblTotalOrderPrice = new System.Windows.Forms.Label();
+            this.btnClearOrder = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnBillList = new System.Windows.Forms.Button();
@@ -61,9 +61,9 @@
             // 
             // flpProducts
             // 
-            this.flpProducts.Location = new System.Drawing.Point(12, 109);
+            this.flpProducts.Location = new System.Drawing.Point(12, 93);
             this.flpProducts.Name = "flpProducts";
-            this.flpProducts.Size = new System.Drawing.Size(809, 521);
+            this.flpProducts.Size = new System.Drawing.Size(1135, 214);
             this.flpProducts.TabIndex = 2;
             // 
             // dgvOrders
@@ -80,46 +80,13 @@
             this.subTotal,
             this.btnPlus,
             this.btnMinus});
-            this.dgvOrders.Location = new System.Drawing.Point(878, 109);
+            this.dgvOrders.Location = new System.Drawing.Point(12, 362);
             this.dgvOrders.Name = "dgvOrders";
             this.dgvOrders.ReadOnly = true;
             this.dgvOrders.RowHeadersWidth = 62;
             this.dgvOrders.Size = new System.Drawing.Size(968, 460);
             this.dgvOrders.TabIndex = 3;
             this.dgvOrders.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvOrders_CellClick);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(872, 598);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(171, 24);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Total order price:";
-            // 
-            // lblTotalOrderPrice
-            // 
-            this.lblTotalOrderPrice.AutoSize = true;
-            this.lblTotalOrderPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
-            this.lblTotalOrderPrice.ForeColor = System.Drawing.Color.Green;
-            this.lblTotalOrderPrice.Location = new System.Drawing.Point(1043, 598);
-            this.lblTotalOrderPrice.Name = "lblTotalOrderPrice";
-            this.lblTotalOrderPrice.Size = new System.Drawing.Size(109, 24);
-            this.lblTotalOrderPrice.TabIndex = 5;
-            this.lblTotalOrderPrice.Text = "(totalprice)";
-            // 
-            // btnClearOrder
-            // 
-            this.btnClearOrder.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnClearOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClearOrder.Location = new System.Drawing.Point(191, 12);
-            this.btnClearOrder.Name = "btnClearOrder";
-            this.btnClearOrder.Size = new System.Drawing.Size(173, 40);
-            this.btnClearOrder.TabIndex = 6;
-            this.btnClearOrder.Text = "Clear order";
-            this.btnClearOrder.UseVisualStyleBackColor = true;
-            this.btnClearOrder.Click += new System.EventHandler(this.btnClearOrder_Click);
             // 
             // productId
             // 
@@ -179,11 +146,44 @@
             this.btnMinus.Text = "-";
             this.btnMinus.UseColumnTextForButtonValue = true;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(6, 851);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(171, 24);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Total order price:";
+            // 
+            // lblTotalOrderPrice
+            // 
+            this.lblTotalOrderPrice.AutoSize = true;
+            this.lblTotalOrderPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
+            this.lblTotalOrderPrice.ForeColor = System.Drawing.Color.Green;
+            this.lblTotalOrderPrice.Location = new System.Drawing.Point(177, 851);
+            this.lblTotalOrderPrice.Name = "lblTotalOrderPrice";
+            this.lblTotalOrderPrice.Size = new System.Drawing.Size(109, 24);
+            this.lblTotalOrderPrice.TabIndex = 5;
+            this.lblTotalOrderPrice.Text = "(totalprice)";
+            // 
+            // btnClearOrder
+            // 
+            this.btnClearOrder.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClearOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClearOrder.Location = new System.Drawing.Point(191, 12);
+            this.btnClearOrder.Name = "btnClearOrder";
+            this.btnClearOrder.Size = new System.Drawing.Size(173, 40);
+            this.btnClearOrder.TabIndex = 6;
+            this.btnClearOrder.Text = "Clear order";
+            this.btnClearOrder.UseVisualStyleBackColor = true;
+            this.btnClearOrder.Click += new System.EventHandler(this.btnClearOrder_Click);
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 82);
+            this.label2.Location = new System.Drawing.Point(12, 66);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(215, 24);
             this.label2.TabIndex = 7;
@@ -193,7 +193,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(874, 82);
+            this.label3.Location = new System.Drawing.Point(8, 335);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(125, 24);
             this.label3.TabIndex = 8;
@@ -215,7 +215,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1872, 732);
+            this.ClientSize = new System.Drawing.Size(1178, 908);
             this.Controls.Add(this.btnBillList);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);

@@ -104,6 +104,12 @@
     <Compile Include="View\Category\frmCategoryView.Designer.cs">
       <DependentUpon>frmCategoryView.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Kitchen\frmKitchenView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Kitchen\frmKitchenView.Designer.cs">
+      <DependentUpon>frmKitchenView.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Order\frmOrderDetails.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -182,6 +188,9 @@
     <EmbeddedResource Include="View\Category\frmCategoryView.resx">
       <DependentUpon>frmCategoryView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\Kitchen\frmKitchenView.resx">
+      <DependentUpon>frmKitchenView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Order\frmOrderDetails.resx">
       <DependentUpon>frmOrderDetails.cs</DependentUpon>
     </EmbeddedResource>
@@ -230,13 +239,13 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\" />
-    <Folder Include="View\Kitchen\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\add-product.png" />
     <Content Include="Resources\delete-icon.png" />
     <Content Include="Resources\edit-icon.png" />
     <None Include="Resources\rest-table-icon.png" />
+    <Content Include="Resources\kitchen-icon.png" />
     <Content Include="Resources\staff-icon.png" />
     <Content Include="Resources\user-icon.png" />
   </ItemGroup>
