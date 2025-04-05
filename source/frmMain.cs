@@ -1,5 +1,6 @@
 ﻿using ResturantManagmentSystem.View.Category;
 using ResturantManagmentSystem.View.Product;
+using ResturantManagmentSystem.View.Table;
 using System.Windows.Forms;
 
 namespace ResturantManagmentSystem
@@ -11,7 +12,8 @@ namespace ResturantManagmentSystem
         private frmHome homeViewInstance;
         private frmCategoryView categoryViewInstance;
         private frmProductView _frmProductViewInstance;
-        
+        private frmTableView _frmTableViewInstance;
+
         public frmMain()
         {
             InitializeComponent();
@@ -42,7 +44,6 @@ namespace ResturantManagmentSystem
             categoryViewInstance.GetData(); // Force refresh data
         }
 
-        
         // When Product button gets clicked
         private void ProductButton_Clicked(object sender, System.EventArgs e)
         {
@@ -53,14 +54,57 @@ namespace ResturantManagmentSystem
             }
 
             AddControls(_frmProductViewInstance);
-            //_frmProductViewInstance.GetData(); // Force refresh data
+            _frmProductViewInstance.GetData(); // Force refresh data
         }
 
+        // When Table button gets clicked
+        private void TableButton_Clicked(object sender, System.EventArgs e)
+        {
+            // Use the instance if it's not null or disposed to avoid creating a new instance every time the button is clicked
+            if (_frmTableViewInstance == null || _frmTableViewInstance.IsDisposed)
+            {
+                _frmTableViewInstance = new frmTableView();
+            }
+
+            AddControls(_frmTableViewInstance);
+            _frmTableViewInstance.GetData(); // Force refresh data
+        }
 
         // When main form is loaded
         private void frmMain_Load(object sender, System.EventArgs e)
         {
             lblUser.Text = MainClass.USER;
+
+            if (homeViewInstance == null || homeViewInstance.IsDisposed)
+            {
+                homeViewInstance = new frmHome();
+            }
+
+
+            // Show home as main load
+            AddControls(homeViewInstance);
+        }
+
+        // When main form is closed
+        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // Show confirmation dialog
+            DialogResult result = MessageBox.Show(
+                "Are you sure you want to exit the application?",
+                "Confirm Exit",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            // If user clicks No, cancel the closing event
+            if (result == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
+
+            else
+            {
+                Application.ExitThread();
+            }
         }
 
 
@@ -86,5 +130,6 @@ namespace ResturantManagmentSystem
         }
 
         #endregion
+
     }
 }

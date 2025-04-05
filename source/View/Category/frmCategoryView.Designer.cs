@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCategoryView));
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.catID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -38,13 +37,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
+            // txtSearch
+            // 
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(5);
+            // 
             // btnAdd
             // 
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // label2
             // 
-            this.label2.Size = new System.Drawing.Size(90, 17);
+            this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label2.Size = new System.Drawing.Size(142, 28);
             this.label2.Text = "Category List";
             // 
             // openFileDialog1
@@ -62,10 +66,12 @@
             this.catName,
             this.dgvedit,
             this.dgvdel});
-            this.dataGridView1.Location = new System.Drawing.Point(49, 133);
+            this.dataGridView1.Location = new System.Drawing.Point(77, 219);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(5);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(735, 293);
+            this.dataGridView1.RowHeadersWidth = 62;
+            this.dataGridView1.Size = new System.Drawing.Size(1016, 483);
             this.dataGridView1.TabIndex = 5;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick_1);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
@@ -74,46 +80,51 @@
             // 
             this.catID.DataPropertyName = "catID";
             this.catID.HeaderText = "ID";
+            this.catID.MinimumWidth = 8;
             this.catID.Name = "catID";
             this.catID.ReadOnly = true;
+            this.catID.Width = 150;
             // 
             // catName
             // 
             this.catName.DataPropertyName = "catName";
             this.catName.HeaderText = "Name";
+            this.catName.MinimumWidth = 8;
             this.catName.Name = "catName";
             this.catName.ReadOnly = true;
+            this.catName.Width = 150;
             // 
             // dgvedit
             // 
-            this.dgvedit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dgvedit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.dgvedit.FillWeight = 50F;
             this.dgvedit.HeaderText = "Edit Action";
-            this.dgvedit.Image = ((System.Drawing.Image)(resources.GetObject("dgvedit.Image")));
+            this.dgvedit.Image = global::ResturantManagmentSystem.Properties.Resources.edit_icon;
             this.dgvedit.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.dgvedit.MinimumWidth = 50;
             this.dgvedit.Name = "dgvedit";
             this.dgvedit.ReadOnly = true;
-            this.dgvedit.Width = 50;
+            this.dgvedit.Width = 114;
             // 
             // dgvdel
             // 
-            this.dgvdel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dgvdel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.dgvdel.FillWeight = 50F;
             this.dgvdel.HeaderText = "Delete Action";
-            this.dgvdel.Image = ((System.Drawing.Image)(resources.GetObject("dgvdel.Image")));
+            this.dgvdel.Image = global::ResturantManagmentSystem.Properties.Resources.delete_icon;
             this.dgvdel.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.dgvdel.MinimumWidth = 50;
             this.dgvdel.Name = "dgvdel";
             this.dgvdel.ReadOnly = true;
-            this.dgvdel.Width = 50;
+            this.dgvdel.Width = 136;
             // 
             // frmCategoryView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1257, 741);
             this.Controls.Add(this.dataGridView1);
+            this.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.Name = "frmCategoryView";
             this.Text = "frmCategoryView";
             this.Controls.SetChildIndex(this.txtSearch, 0);

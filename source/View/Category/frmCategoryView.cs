@@ -76,6 +76,16 @@ namespace ResturantManagmentSystem.View.Category
         // Help for you barazan the columns names are as follows: catID, catName, dgvDel, dgvEdit
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            // Check if the clicked cell is in the edit column
+            if (e.ColumnIndex == dataGridView1.Columns["dgvEdit"].Index && e.RowIndex >= 0)
+            {
+                // Get the category ID
+                int categoryId = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["catID"].Value);
+
+                // Open the edit form with the selected category data
+                EditCategory(categoryId);
+            }
+
             // Check if the clicked cell is in the delete column
             if (e.ColumnIndex == dataGridView1.Columns["dgvDel"].Index && e.RowIndex >= 0)
             {
@@ -150,6 +160,50 @@ namespace ResturantManagmentSystem.View.Category
             }
         }
 
+        private void EditCategory(int categoryId)
+        {
+            try
+            {
+                // Create a query to get the category data
+                string query = "SELECT * FROM category WHERE catID = @catID";
+
+                using (SqlConnection con = MainClass.GetConnection())
+                {
+                    con.Open();
+                    using (SqlCommand cmd = new SqlCommand(query, con))
+                    {
+                        cmd.Parameters.AddWithValue("@catID", categoryId);
+
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                // Create and configure the Category Add form
+                                frmCategoryAdd frm = new frmCategoryAdd();
+
+                                // Set the ID to indicate we're editing
+                                frm.id = categoryId;
+
+                                // Fill the form with the category data
+                                frm.txtName.Text = reader["catName"].ToString();
+
+                                // Subscribe to the CategoryAdded event
+                                frm.CategoryAdded += (s, args) => GetData();
+
+                                // Show the form
+                                frm.ShowDialog();
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading category details: " + ex.Message,
+                    "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
 
         // Method used to load data when the form is fully loaded
         private void FrmCategoryView_Load(object sender, EventArgs e)

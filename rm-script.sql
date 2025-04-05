@@ -50,3 +50,23 @@ VALUES
     ('Steak Dinner', 19.99, 'Grilled ribeye with mashed potatoes', 3),
     ('Grilled Salmon', 16.99, 'Fresh salmon with seasonal vegetables', 3)
 GO
+
+-- Table table and data insertion
+CREATE TABLE tables (
+    tableID INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+    tableNumber VARCHAR(10) NOT NULL,          -- Table identifier (e.g., "T1", "Table 5")
+    capacity INT NOT NULL,                     -- How many people can sit at this table
+    [location] VARCHAR(50) NULL,                 -- Section/area of restaurant (e.g., "Patio", "Main Floor")
+    [status] VARCHAR(20) DEFAULT 'Available',    -- Current status: Available, Occupied, Reserved, Out of Service
+    notes VARCHAR(255) NULL                    -- Any special notes about the table
+)
+GO
+
+INSERT INTO tables (tableNumber, capacity, location, status, notes)
+VALUES
+('T1', 2, 'Main Floor', 'Available', 'Near window'),
+('T2', 4, 'Main Floor', 'Available', 'Center area'),
+('T3', 6, 'Patio', 'Available', 'Umbrella table'),
+('T4', 8, 'Private Room', 'Available', 'Reservation required'),
+('T5', 2, 'Bar Area', 'Available', 'High chairs')
+GO

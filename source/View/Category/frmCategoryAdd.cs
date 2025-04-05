@@ -18,6 +18,16 @@ namespace ResturantManagmentSystem.View.Category
         {
             // Set the focus on the text box when the form is loaded
             txtName.Focus();
+
+            // Update the form title based on the operation
+            if (id == 0)
+            {
+                this.label1.Text = "Add Category"; // Assuming label1 is your header label
+            }
+            else
+            {
+                this.label1.Text = "Edit Category";
+            }
         }
 
         public override void btnSave_Click(object sender, EventArgs e)
